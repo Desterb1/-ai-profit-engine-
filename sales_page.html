@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Profit Engine | The Ultimate Affiliate Marketing System</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --secondary: #10B981;
+            --dark: #111827;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --danger: #EF4444;
+            --warning: #F59E0B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            padding: 80px 0;
+            background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(17, 24, 39, 0.8);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        h1 span {
+            color: var(--secondary);
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background: #0DA271;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--dark);
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 30px;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .pricing {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'BEST VALUE';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 30px;
+            font-size: 12px;
+            transform: rotate(45deg);
+            font-weight: bold;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .price-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .price-amount {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .price-amount span {
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .price-features {
+            margin-bottom: 30px;
+            list-style: none;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .faq {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .guarantee {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .guarantee-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-badge {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            border: 5px solid var(--light);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .guarantee h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .guarantee p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .countdown {
+            background: var(--danger);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .countdown span {
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .bonus-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+        }
+        
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .bonus-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 2px dashed var(--warning);
+            position: relative;
+        }
+        
+        .bonus-label {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--warning);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .bonus-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            margin-top: 10px;
+        }
+        
+        .bonus-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--danger);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        🔥 LIMITED TIME OFFER: Special Launch Price Ends In <span id="countdown-timer">23:59:59</span> 🔥
+    </div>
+    
+    <header>
+        <div class="container header-content">
+            <div class="logo">AI Profit <span>Engine</span></div>
+            <a href="#pricing" class="btn">Get Started</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Unlock the <span>$935 Billion</span> AI Market With Zero Technical Skills</h1>
+            <p class="subtitle">The Complete Done-For-You AI Affiliate Marketing System That's Generating $1,000+ Per Day For Complete Beginners</p>
+            <a href="#pricing" class="btn btn-primary">CLAIM YOUR SYSTEM NOW</a>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why The <span>AI Profit Engine</span> Is Different</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">100% Done-For-You</h3>
+                    <p>Everything is ready to deploy - landing page, email sequences, funnel structure, payment system. Just add your name and start collecting commissions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">High-Ticket Commissions</h3>
+                    <p>Promote AI products that pay $200+ per sale and 25-30% recurring commissions. One sale can pay for the entire system.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Hottest Market of 2025</h3>
+                    <p>AI is projected to reach $935 billion by 2026. Get positioned in front of this unstoppable trend before your competition.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Multi-Platform Strategy</h3>
+                    <p>Detailed promotion strategies for LinkedIn, Twitter, Facebook, Instagram and YouTube to maximize your reach and conversions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3 class="feature-title">Proven Email Sequence</h3>
+                    <p>7-day email follow-up sequence with proven copy that converts subscribers into buyers on autopilot.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Passive Income System</h3>
+                    <p>Set it up once and collect commissions month after month with minimal maintenance required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success <span>Stories</span></h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"I was skeptical at first, but this system is the real deal. I made my first commission of $200 within 48 hours of setting it up. Now I'm consistently making $3,000+ per month promoting AI tools."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p>Former Retail Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"As a busy mom of three, I needed something that wouldn't take hours of my time. This system is truly plug-and-play. I'm now earning more from this side hustle than my previous full-time job!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jennifer R.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jennifer R.</h4>
+                            <p>Stay-at-home Mom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"I've tried countless affiliate marketing systems before, but none delivered results like this one. The AI niche is red hot, and having a complete system ready to go gave me a massive head start."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David K.">
+                        </div>
+                        <div class="author-info">
+                            <h4>David K.</h4>
+                            <p>Digital Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bonus-section">
+        <div class="container">
+            <h2 class="section-title">Limited Time <span>Bonuses</span></h2>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <div class="bonus-label">BONUS #1</div>
+                    <h3 class="bonus-title">AI Traffic Accelerator</h3>
+                    <p class="bonus-value">Value: $497</p>
+                    <p>Advanced strategies to drive targeted traffic to your AI affiliate offers using the latest AI-powered tools and platforms.</p>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-label">BONUS #2</div>
+                    <h3 class="bonus-title">30-Day AI Launch Plan</h3>
+                    <p class="bonus-value">Value: $297</p>
+                    <p>Day-by-day action plan to launch your AI affiliate business and start generating commissions within your first month.</p>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-label">BONUS #3</div>
+                    <h3 class="bonus-title">AI Copywriting Templates</h3>
+                    <p class="bonus-value">Value: $197</p>
+                    <p>20 proven copywriting templates specifically designed for promoting AI products and services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Get <span>Started</span> Today</h2>
+            <div class="pricing-options">
+                <div class="pricing-card">
+                    <h3 class="price-title">Basic Package</h3>
+                    <div class="price-amount">$97 <span>one-time</span></div>
+                    <ul class="price-features">
+                        <li>Complete AI Affiliate System</li>
+                        <li>Landing Page & Funnel</li>
+                        <li>7-Day Email Sequence</li>
+                        <li>Payment Collection System</li>
+                        <li>Social Media Strategy</li>
+                        <li><strike>AI Traffic Accelerator</strike></li>
+                        <li><strike>30-Day AI Launch Plan</strike></li>
+                        <li><strike>AI Copywriting Templates</strike></li>
+                    </ul>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3 class="price-title">Premium Package</h3>
+                    <div class="price-amount">$197 <span>one-time</span></div>
+                    <ul class="price-features">
+                        <li>Complete AI Affiliate System</li>
+                        <li>Landing Page & Funnel</li>
+                        <li>7-Day Email Sequence</li>
+                        <li>Payment Collection System</li>
+                        <li>Social Media Strategy</li>
+                        <li>AI Traffic Accelerator</li>
+                        <li>30-Day AI Launch Plan</li>
+                        <li>AI Copywriting Templates</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="guarantee">
+        <div class="container guarantee-content">
+            <div class="guarantee-badge">30 DAY</div>
+            <h2>100% Money-Back Guarantee</h2>
+            <p>If you don't make at least one affiliate commission within 30 days of implementing this system exactly as instructed, we'll refund your entire investment. No questions asked.</p>
+        </div>
+    </section>
+    
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Do I need technical skills to use this system?</div>
+                    <div class="faq-answer">Absolutely not. The AI Profit Engine is designed to be completely plug-and-play. All technical aspects are handled for you with step-by-step instructions for the minimal setup required.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How soon can I expect to make money?</div>
+                    <div class="faq-answer">Many of our users see their first commission within the first week of implementation. However, results can vary based on your execution and promotion efforts. Our 30-day AI Launch Plan is designed to accelerate your results.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What costs are involved beyond purchasing this system?</div>
+                    <div class="faq-answer">You'll need basic web hosting (approximately $5-10/month) and an email marketing service (free options available to start). Everything else is included in the system.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I sell this system to others?</div>
+                    <div class="faq-answer">Yes! The Premium Package includes Private Label Rights, allowing you to rebrand and resell the entire system as your own product. This creates an additional income stream beyond the affiliate commissions.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How is this different from other affiliate marketing systems?</div>
+                    <div class="faq-answer">The AI Profit Engine is specifically designed for the explosive AI market, which is projected to reach $935 billion by 2026. It includes everything you need to tap into this trend, with high-commission products and proven marketing materials tailored for AI products.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container cta-content">
+            <h2>The AI Revolution Is Happening Now</h2>
+            <p>Don't miss your opportunity to profit from the biggest technological shift of our lifetime. This system gives you everything you need to start earning high-ticket commissions from the booming AI market.</p>
+            <a href="#pricing" class="btn">GET INSTANT ACCESS</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Earnings Disclaimer</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <p class="copyright">© 2025 AI Profit Engine. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const hours = 23 - now.getHours();
+            const minutes = 59 - now.getMinutes();
+            const seconds = 59 - now.getSeconds();
+            
+            document.getElementById('countdown-timer').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                answer.style.display = isOpen ? 'none' : 'block';
+                question.style.color = isOpen ? 'var(--dark)' : 'var(--primary)';
+                question.style.fontWeight = isOpen ? '600' : '700';
+                question.style.after = isOpen ? '+' : '-';
+            });
+        });
+        
+        // Hide all FAQ answers initially
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

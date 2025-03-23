@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Profit Engine - Promotional Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .banner {
+            width: 1200px;
+            max-width: 100%;
+            height: 630px;
+            background: linear-gradient(135deg, #4F46E5 0%, #2563EB 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            color: white;
+        }
+        
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .banner-title {
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .banner-title span {
+            color: #10B981;
+        }
+        
+        .banner-subtitle {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            max-width: 80%;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .banner-description {
+            font-size: 24px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            max-width: 70%;
+        }
+        
+        .banner-price {
+            display: inline-block;
+            background: #EF4444;
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+        
+        .banner-cta {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111827;
+            background: #10B981;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .banner-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        .banner-disclaimer {
+            position: absolute;
+            bottom: 20px;
+            left: 50px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        .banner-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #F59E0B;
+            color: white;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 18px;
+            transform: rotate(5deg);
+            box-shadow: 0 5px 10px rgba(245, 158, 11, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .banner {
+                height: auto;
+                min-height: 500px;
+            }
+            
+            .banner-title {
+                font-size: 48px;
+            }
+            
+            .banner-subtitle {
+                font-size: 24px;
+                max-width: 100%;
+            }
+            
+            .banner-description {
+                font-size: 18px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-badge">LIMITED TIME</div>
+        <div class="banner-content">
+            <h1 class="banner-title">AI Profit <span>Engine</span></h1>
+            <h2 class="banner-subtitle">Your Effort = Your Results. Real Money. Real Talk.</h2>
+            <p class="banner-description">This system won't make you rich overnight, but it WILL put you in position to earn. The more you put in, the more you get out. Some users are making $1000/day with consistent effort.</p>
+            <div class="banner-price">Just $3 to Get Started</div>
+            <a href="#" class="banner-cta">GET YOUR COPY NOW</a>
+            <p class="banner-disclaimer">Results vary based on effort, market conditions, and implementation. No income guarantees implied.</p>
+        </div>
+    </div>
+</body>
+</html>
